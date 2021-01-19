@@ -23,6 +23,7 @@ public class Cloud {
             coordinates = Constants.CLOUD_1;
         }
         for(int i =0; i<_cloudBubbles.length; i++){
+            _cloudBubbles[i].setSize(10);
             _cloudBubbles[i].setX(coordinates[i][0]);
             _cloudBubbles[i].setY(coordinates[i][1]);
         }
