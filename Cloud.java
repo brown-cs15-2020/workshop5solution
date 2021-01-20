@@ -1,13 +1,18 @@
 package workshop5solution;
 
 import javafx.scene.shape.Circle;
+import java.util.Arrays;
+import java.util.List;
 
 public class Cloud {
     private int _type;
     private Bubble[] _cloudBubbles;
+
     public Cloud(int type){
         _cloudBubbles =new Bubble[4];
         _type=type;
+        this.generateCloud();
+        this.arrangeCloud();
     }
     public void generateCloud(){
         for( int i =0; i<4; i++){
@@ -26,12 +31,12 @@ public class Cloud {
             _cloudBubbles[i].setSize(10);
             _cloudBubbles[i].setX(coordinates[i][0]);
             _cloudBubbles[i].setY(coordinates[i][1]);
+            _cloudBubbles[i].setSize(Constants.BUBBLE_SIZE);
         }
     }
 
-    public Circle[] getComps(){
-        Circle[] circleArray =  {_cloudBubbles[0]._getBubble(),_cloudBubbles[1]._getBubble(),
-        _cloudBubbles[2]._getBubble(),_cloudBubbles[3]._getBubble()};
-        return circleArray;
+    public List<Circle> getComponents(){
+        return Arrays.asList(_cloudBubbles[0].getBubble(),_cloudBubbles[1].getBubble(),
+        _cloudBubbles[2].getBubble(),_cloudBubbles[3].getBubble());
     }
 }

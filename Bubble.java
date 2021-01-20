@@ -23,7 +23,7 @@ public class Bubble {
         _bubble.setCenterY(y);
     }
 
-    public Circle _getBubble(){
+    public Circle getBubble(){
         return _bubble;
     }
 }

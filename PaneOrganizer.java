@@ -1,15 +1,19 @@
 package workshop5solution;
 
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 /**
  * Organizes GUI layout for workshop5.
  */
 public class PaneOrganizer {
-    private Pane _root;
+    private BorderPane _root;
 
     public PaneOrganizer() {
-        _root = new Pane();
+        _root = new BorderPane();
+        Pane cloudPane = new Pane();
+        _root.setCenter(cloudPane);
+        new Generator(cloudPane);
     }
 
     public Pane getRoot() {
