@@ -22,10 +22,10 @@ public class Cloud {
 
     public void arrangeCloud(){
         int [][] coordinates;
-        if(_type==0){
-            coordinates = Constants.CLOUD_0;
-        }else{
+        if(_type==1){
             coordinates = Constants.CLOUD_1;
+        }else{
+            coordinates = Constants.CLOUD_2;
         }
         for(int i =0; i<_cloudBubbles.length; i++){
             _cloudBubbles[i].setSize(10);

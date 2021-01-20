@@ -24,10 +24,10 @@ public class Generator {
         public void handle(KeyEvent e) {
             KeyCode key = e.getCode();
             if (key == KeyCode.DIGIT1) {
-                Generator.this.buildCloud(0);
+                Generator.this.buildCloud(1);
             }
             if (key == KeyCode.DIGIT2) {
-                Generator.this.buildCloud(1);
+                Generator.this.buildCloud(2);
             }
             e.consume();
         }
