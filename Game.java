@@ -15,10 +15,6 @@ public class Game {
         _pane.requestFocus();
     }
 
-//    public void buildCloud(int type) {
-//        _pane.getChildren().addAll(new Cloud(type).getComponents());
-//    }
-
     private class KeyHandler implements EventHandler<KeyEvent> {
         int[][] coords;
 
@@ -34,25 +30,18 @@ public class Game {
                     coords = Constants.CLOUD_2;
                     break;
                 /*
-                 * since our clouds are specifically generated with 1 and 2, there is no default
-                 * in Tetris, since they're switching on a random number, the default should be
-                 * the last real case (e.g. switching on a random number 0-3, cases should be 0, 1
-                 * 2) and then the default should be for 3
+                 * since our clouds are specifically generated with the 1 and 2 keys,
+                 * nothing should happen in the default case
                 */
                 default:
                     break;
             }
 
-            _pane.getChildren().addAll(new Cloud(coords).getComponents());
-            /*
-            if (key == KeyCode.DIGIT1) {
-                Game.this.buildCloud(1);
+            Cloud cloud = new Cloud(coords);
+
+            for(Bubble cloudBubble : cloud.getComponents()){
+                _pane.getChildren().add(cloudBubble.getBubble());
             }
-            if (key == KeyCode.DIGIT2) {
-                Game.this.buildCloud(2);
-            }
-            e.consume();
-             */
         }
     }
 }

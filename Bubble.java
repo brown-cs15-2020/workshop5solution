@@ -6,12 +6,9 @@ import javafx.scene.shape.Circle;
 public class Bubble {
     private Circle _bubble;
 
-    public Bubble(){
+    public Bubble(int radius){
         _bubble = new Circle();
         _bubble.setFill(Color.WHITE);
-    }
-
-    public void setSize(double radius){
         _bubble.setRadius(radius);
     }
 
