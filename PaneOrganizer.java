@@ -13,7 +13,7 @@ public class PaneOrganizer {
         _root = new BorderPane();
         Pane cloudPane = new Pane();
         _root.setCenter(cloudPane);
-        new Generator(cloudPane);
+        new Game(cloudPane);
     }
 
     public Pane getRoot() {

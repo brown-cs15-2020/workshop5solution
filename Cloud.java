@@ -5,32 +5,26 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Cloud {
-    private int _type;
+    private int[][] _coords;
     private Bubble[] _cloudBubbles;
 
-    public Cloud(int type){
-        _cloudBubbles =new Bubble[4];
-        _type=type;
+    public Cloud(int[][] configuration){
+        _cloudBubbles = new Bubble[4];
+        _coords = configuration;
         this.generateCloud();
-        this.arrangeCloud();
     }
     public void generateCloud(){
         for( int i =0; i<4; i++){
-            _cloudBubbles[i]=new Bubble();
+            _cloudBubbles[i] = new Bubble();
         }
+        this.arrangeCloud();
     }
 
     public void arrangeCloud(){
-        int [][] coordinates;
-        if(_type==1){
-            coordinates = Constants.CLOUD_1;
-        }else{
-            coordinates = Constants.CLOUD_2;
-        }
-        for(int i =0; i<_cloudBubbles.length; i++){
+        for(int i = 0; i < _cloudBubbles.length; i++){
             _cloudBubbles[i].setSize(10);
-            _cloudBubbles[i].setX(coordinates[i][0]);
-            _cloudBubbles[i].setY(coordinates[i][1]);
+            _cloudBubbles[i].setX(_coords[i][0]);
+            _cloudBubbles[i].setY(_coords[i][1]);
             _cloudBubbles[i].setSize(Constants.BUBBLE_SIZE);
         }
     }
