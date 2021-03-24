@@ -34,7 +34,7 @@ public class Game {
                  * nothing should happen in the default case
                 */
                 default:
-                    break;
+                    return;
             }
 
             Cloud cloud = new Cloud(coords);
