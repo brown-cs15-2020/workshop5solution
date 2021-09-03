@@ -6,42 +6,40 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 public class Game {
-    Pane _pane;
+    private Pane pane;
 
     public Game(Pane pane){
-        _pane = pane;
-        _pane.addEventHandler(KeyEvent.KEY_PRESSED, new KeyHandler());
-        _pane.setFocusTraversable(true);
-        _pane.requestFocus();
+        this.pane = pane;
+        this.pane.setOnKeyPressed((KeyEvent e) -> this.onKeyPress(e));
+        this.pane.setFocusTraversable(true);
+        this.pane.requestFocus();
     }
 
-    private class KeyHandler implements EventHandler<KeyEvent> {
-        int[][] coords;
 
-        @Override
-        public void handle(KeyEvent e) {
-            KeyCode key = e.getCode();
 
-            switch(key) {
-                case DIGIT1:
-                    coords = Constants.CLOUD_1;
-                    break;
-                case DIGIT2:
-                    coords = Constants.CLOUD_2;
-                    break;
-                /*
-                 * since our clouds are specifically generated with the 1 and 2 keys,
-                 * nothing should happen in the default case
-                */
-                default:
-                    return;
-            }
+    public void onKeyPress(KeyEvent e) {
+        KeyCode key = e.getCode();
+        int [][] coords;
+        switch(key) {
+            case DIGIT1:
+                coords = Constants.CLOUD_1;
+                break;
+            case DIGIT2:
+                coords = Constants.CLOUD_2;
+                break;
+            /*
+             * since our clouds are specifically generated with the 1 and 2 keys,
+             * nothing should happen in the default case
+            */
+            default:
+                return;
+        }
 
-            Cloud cloud = new Cloud(coords);
+        Cloud cloud = new Cloud(coords);
 
-            for(Bubble cloudBubble : cloud.getComponents()){
-                _pane.getChildren().add(cloudBubble.getBubble());
-            }
+        for(Bubble cloudBubble : cloud.getComponents()){
+            this.pane.getChildren().add(cloudBubble.getBubble());
         }
     }
 }
+

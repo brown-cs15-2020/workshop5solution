@@ -7,17 +7,17 @@ import javafx.scene.layout.Pane;
  * Organizes GUI layout for workshop5.
  */
 public class PaneOrganizer {
-    private BorderPane _root;
+    private BorderPane root;
 
     public PaneOrganizer() {
-        _root = new BorderPane();
+        this.root = new BorderPane();
         Pane cloudPane = new Pane();
-        _root.setCenter(cloudPane);
+        this.root.setCenter(cloudPane);
         new Game(cloudPane);
     }
 
     public Pane getRoot() {
-        return _root;
+        return this.root;
     }
 }
 
